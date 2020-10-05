@@ -1,0 +1,17 @@
+.list-container {
+  padding-bottom: 24px;
+
+  &-title {
+    padding: 16px 0px 0px 16px;
+  }
+}
+
+.progress-bar-content {
+  height: 55vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  mat-progress-bar {
+    width: 50%;
+  }
+}

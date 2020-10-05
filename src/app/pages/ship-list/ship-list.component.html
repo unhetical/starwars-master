@@ -1,0 +1,24 @@
+<div class="list-container">
+  <div *ngIf="!dataLoading">
+    <h2 class="list-container-title">Starship List</h2>
+    <mat-selection-list #ships [multiple]="false">
+      <mat-list-option
+        *ngFor="let ship of shipList"
+        [value]="ship"
+        (click)="openDialog(ship)"
+      >
+        Name: {{ ship.name }} - Model: {{ ship.model }}
+      </mat-list-option>
+    </mat-selection-list>
+  </div>
+  <div class="progress-bar-content" *ngIf="dataLoading">
+    <mat-progress-bar mode="buffer"></mat-progress-bar>
+  </div>
+
+<mat-paginator
+  [length]="100"
+  [pageSize]="10"
+  (page)="getShipList(list.next)"
+></mat-paginator>
+</div>
+
