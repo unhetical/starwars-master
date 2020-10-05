@@ -1,10 +1,10 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { environment } from '../../../environments/environment';
 
 import { User, UserResponse } from 'src/app/shared/models/user.interface';
-import { catchError, map} from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { UserService } from 'src/app/shared/services/user.service';
 
 @Injectable({
@@ -15,20 +15,21 @@ export class AuthService {
 
   login(authData: User): Observable<UserResponse | any> {
     return this.http
-      .post<UserResponse>(`${environment.API_URL}/auth/login`, authData)
+      .post<UserResponse>(`${environment.API_URL}/login`, authData)
       .pipe(
         map((res: UserResponse) => {
           console.log('res', res);
           // save token
         }),
-      // catchError(error) => this.handlerError(error)
+        catchError((error) => throwError(error))
       );
   }
-  logout(): void {}
 
-  setCredentials(username, password){}
+  setCredentials(username: string, password: string){
+    // TODO:
+  }
 
-  private readToken(): void {}
-  private saveToken(): void {}
-  private handlerError(): void {}
+  logout(): void {
+    // TODO:
+  }
 }

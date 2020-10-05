@@ -1,9 +1,9 @@
 export interface User {
-  id: string;
+  id?: string;
   username: string;
   password: string;
-  firstname: string;
-  lastname: string;
+  firstname?: string;
+  lastname?: string;
 }
 
 export interface UserResponse {

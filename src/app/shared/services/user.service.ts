@@ -34,28 +34,38 @@ export class UserService {
   getByUsername(username: string): User | null {
     const users = this.getUsers();
     const user = users.find((usr) => usr.username === username);
-    return user.length ? user : null;
+    return user ? user : null;
   }
 
   create(user: User): Promise<any> {
     const promise = new Promise((resolve, reject) => {
       const usr = this.getByUsername(user.username);
-      if (usr !== null) {
+      if (usr !== null && usr.username !== '') {
         alert('Username "' + user.username + '" is already taken');
         reject('error');
       } else {
         const users = this.getUsers();
-        // assign id
-        const lastUser = users[users.length - 1] || { id: 0 };
-        user.id = lastUser.id + 1;
         // save to local storage
         users.push(user);
         this.setUsers(users);
-        resolve();
+        resolve(true);
       }
     });
     return promise;
   }
+
+  // create2(user: User): Observable<any> {
+  //   const usr = this.getByUsername(user.username);
+  //   if (usr !== null && usr.username !== '') {
+  //     alert('Username "' + user.username + '" is already taken');
+  //   } else {
+  //     const users = this.getUsers();
+  //     // save to local storage
+  //     users.push(user);
+  //     this.setUsers(users);
+  //     return users;
+  //   }
+  // }
 
   update(user: User): void {
     const users = this.getUsers();
