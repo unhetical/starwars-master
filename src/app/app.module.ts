@@ -1,11 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-
 import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -14,14 +12,16 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatButtonModule } from '@angular/material/button';
-
 import { HeaderComponent } from './shared/components/header/header.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { DetailDialogComponent } from './shared/components/detail-dialog/detail-dialog.component';
 import { NavigationComponent } from './shared/components/navigation/navigation.component';
-import { RegisterComponent } from './shared/components/register/register.component';
-import { ShipListComponent } from './shared/components/ship-list/ship-list.component';
-import { LoginComponent } from './shared/components/login/login.component';
+import { ShipListComponent } from './pages/ship-list/ship-list.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './pages/register/register.component';
+import { LoginComponent } from './pages/login/login.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,8 +29,8 @@ import { LoginComponent } from './shared/components/login/login.component';
     FooterComponent,
     DetailDialogComponent,
     NavigationComponent,
-    RegisterComponent,
     ShipListComponent,
+    RegisterComponent,
     LoginComponent,
   ],
   imports: [
@@ -46,6 +46,8 @@ import { LoginComponent } from './shared/components/login/login.component';
     MatPaginatorModule,
     MatButtonModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    MatProgressBarModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
