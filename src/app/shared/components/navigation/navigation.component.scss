@@ -1,0 +1,12 @@
+mat-toolbar {
+  border-bottom: 1px solid #eaeaea;
+  .navbar {
+    width: 40%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .spacer{
+    flex: 1 1 auto;
+  }
+}
