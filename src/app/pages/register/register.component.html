@@ -1,0 +1,139 @@
+<mat-card>
+  <mat-card-content>
+    <h2>Register</h2>
+    <form name="form" [formGroup]="formGroup" (submit)="register()" role="form">
+      <mat-form-field
+        class="form-group"
+        ng-class="{
+          'has-error':
+            formGroup.controls.firstName.dirty &&
+            formGroup.controls.firstName.error.required
+        }"
+      >
+        <mat-label for="username">First name</mat-label>
+        <input
+          matInput
+          type="text"
+          name="firstName"
+          id="firstName"
+          class="form-control"
+          formControlName="firstName"
+          autocomplete="off"
+          required
+        />
+        <mat-error
+          ng-show="
+            formGroup.controls.firstName.dirty &&
+            formGroup.controls.firstName.error.required
+          "
+          class="help-block"
+          >First name is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field
+        class="form-group"
+        ng-class="{
+          'has-error':
+            formGroup.controls.lastName.dirty &&
+            formGroup.controls.lastName.error.required
+        }"
+      >
+        <mat-label for="username">Last name</mat-label>
+        <input
+          matInput
+          type="text"
+          name="lastName"
+          id="Text1"
+          class="form-control"
+          formControlName="lastName"
+          autocomplete="off"
+          required
+        />
+        <mat-error
+          ng-show="
+            formGroup.controls.lastName.dirty &&
+            formGroup.controls.lastName.error.required
+          "
+          class="help-block"
+          >Last name is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field
+        class="form-group"
+        ng-class="{
+          'has-error':
+            formGroup.controls.username.dirty &&
+            formGroup.controls.username.error.required
+        }"
+      >
+        <mat-label for="userName">Username</mat-label>
+        <input
+          matInput
+          type="text"
+          name="userName"
+          id="userName"
+          class="form-control"
+          formControlName="userName"
+          autocomplete="off"
+          required
+        />
+        <mat-error
+          ng-show="
+            formGroup.controls.userName.dirty &&
+            formGroup.controls.userName.error.required
+          "
+          class="help-block"
+          >Username is required</mat-error
+        >
+      </mat-form-field>
+      <mat-form-field
+        class="form-group"
+        ng-class="{
+          'has-error':
+            formGroup.controls.password.dirty &&
+            form.controls.password.error.required
+        }"
+      >
+        <mat-label for="pwd">Password</mat-label>
+        <input
+          matInput
+          type="password"
+          name="pwd"
+          id="pwd"
+          class="form-control"
+          formControlName="password"
+          autocomplete="off"
+          required
+        />
+        <mat-error
+          ng-show="
+            formGroup.controls.password.dirty &&
+            formGroup.controls.password.required
+          "
+          class="help-block"
+          >Password is required</mat-error
+        >
+      </mat-form-field>
+      <div
+        class="form-actions"
+      >
+        <button
+        *ngIf="!this.dataLoading"
+          mat-raised-button
+          type="submit"
+          [disabled]="!formGroup.valid || this.dataLoading"
+          class="btn btn-primary"
+        >
+          Register
+        </button>
+        <img
+          *ngIf="this.dataLoading"
+          src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="
+        />
+        <a mat-raised-button routerLink="/login" class="btn btn-link"
+          >Cancel</a
+        >
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
